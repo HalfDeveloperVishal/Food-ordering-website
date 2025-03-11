@@ -1,0 +1,120 @@
+.featured-restaurants {
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.featured-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #000080; /* Dark blue title */
+  cursor: pointer;
+}
+
+.restaurant-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  cursor: pointer;
+  padding-right: 0px;
+}
+
+.restaurant-list a{
+  text-decoration: none;
+}
+
+.restaurant-card {
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 95%;
+  margin-bottom: 20px;
+  margin: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.restaurant-image {
+  background-color: #e0e0e0;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  cursor: pointer;
+
+}
+
+.restaurant-details {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.restaurant-name {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #333;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.restaurant-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.cuisine {
+  background-color: #e0f2fe;
+  color: #1e88e5;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.rating {
+  background-color: #fff8e1;
+  color: #f9a825;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.star-icon {
+  margin-right: 5px; /* Add space between star and number */
+  color: #f9a825; /* Match star color to rating color */
+  cursor: pointer;
+}
+
+.delivery-time {
+  font-size: 0.9rem;
+  color: #666;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.view-all-button-container {
+  text-align: center; /* Center the button */
+  margin-top: 20px; /* Add some space above the button */
+}
+
+.view-all-button {
+  background-color: white; /* Example button color */
+  color: black;
+  /* border: none; */
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.view-all-button:hover{
+    background-color:#1e88e5;
+    border: none;
+}
+
+@media(max-width:616px){
+  .restaurant-card{
+    width: 95%;
+  }
+}

@@ -1,0 +1,71 @@
+.restaurant-details-page{
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.restaurant-card {
+    border-radius: 8px;
+    width: 95%;
+    margin-bottom: 20px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .restaurant-image {
+    background-color: #e0e0e0;
+    height: 250px;
+    display: flex;
+    cursor: pointer;
+    object-fit: fill;
+  }
+  
+  .restaurant-details {
+    padding: 20px;
+    cursor: pointer;
+  }
+  
+  .restaurant-name {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #333;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .restaurant-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .cuisine {
+    background-color: #e0f2fe;
+    color: #1e88e5;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  
+  .rating {
+    background-color: #fff8e1;
+    color: #f9a825;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  
+  .star-icon {
+    margin-right: 5px; /* Add space between star and number */
+    color: #f9a825; /* Match star color to rating color */
+    cursor: pointer;
+  }
+  
+  .delivery-time {
+    font-size: 0.9rem;
+    color: #666;
+    cursor: pointer;
+    margin-top: 10px;
+  }
