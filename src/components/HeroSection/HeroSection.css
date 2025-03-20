@@ -36,18 +36,21 @@
   margin-right: 10px;
 }
 
+.search-bar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .clear-button {
-  position: absolute;
-  top: 162px;
-  right: 200px; /* Adjust based on the width of the search button */
+  position: absolute; /* Position it absolutely within the container */
+  top: 80%; /* Center vertically */
+  right: 35%; /* Position it at the right */
+  transform: translateY(-50%); /* Fine-tune vertical centering */
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 20px;
   cursor: pointer;
   color: #888;
-  padding: 0;
-  margin: 0;
-  line-height: 1;
 }
 
 .clear-button:hover {
@@ -92,5 +95,10 @@
     padding: 6px 12px;
     font-size: 0.9rem;
     margin-top: 10px;
+  }
+
+  .clear-button{
+    top: 85%;
+    right: 29%;
   }
 }
