@@ -26,7 +26,7 @@ import Sides4 from './Sides4.jpeg'
 import Sides5 from './Sides5.jpeg'
 import Sides6 from './Sides6.jpeg'
 
-const RestaurantListing = () => {
+const RestaurantListing = ({ searchQuery }) => {
   const restaurants = [
    {
          name: "Burger Palace",
@@ -416,42 +416,51 @@ const RestaurantListing = () => {
        },
   ];
 
+  const filteredRestaurants = restaurants.filter((restaurant) =>
+    restaurant.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="featured-restaurants">
       <h2 className="featured-title">Featured Restaurants</h2>
-      <div className="restaurant-list">
-        {restaurants.map((restaurant, index) => (
-          <Link
-            to={`/restaurant/${restaurant.name}`}
-            state={{ restaurant }}
-            key={index}
-          >
-            <div className="restaurant-card">
-              <img
-                className="restaurant-image"
-                src={restaurant.image}
-                alt={restaurant.name}
-              />
-
-              <div className="restaurant-details">
-                <h3 className="restaurant-name">{restaurant.name}</h3>
-                <div className="restaurant-info">
-                  <div>
-                    <span className="cuisine">{restaurant.cuisine}</span>
-                    <p className="delivery-time">
-                      {restaurant.deliveryTime} delivery time
-                    </p>
-                  </div>
-                  <div>
-                    <span className="rating">
-                      <StarFill className="star-icon" /> {restaurant.rating}
-                    </span>
+      <div className={`restaurant-list ${searchQuery ? "single-restaurant" : ""}`}>
+        {filteredRestaurants.length > 0 ? (
+          filteredRestaurants.map((restaurant, index) => (
+            <Link
+              to={`/restaurant/${restaurant.name}`}
+              state={{ restaurant }}
+              key={index}
+            >
+              <div className="restaurant-card">
+                <img
+                  className="restaurant-image"
+                  src={restaurant.image}
+                  alt={restaurant.name}
+                />
+                <div className="restaurant-details">
+                  <h3 className="restaurant-name">{restaurant.name}</h3>
+                  <div className="restaurant-info">
+                    <div>
+                      <span className="cuisine">{restaurant.cuisine}</span>
+                      <p className="delivery-time">
+                        {restaurant.deliveryTime} delivery time
+                      </p>
+                    </div>
+                    <div>
+                      <span className="rating">
+                        <StarFill className="star-icon" /> {restaurant.rating}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          ))
+        ) : (
+          <div className="no-results-message">
+            No Restaurants Found
+          </div>
+        )}
       </div>
       <div className="view-all-button-container">
         <Link to="/restaurant">

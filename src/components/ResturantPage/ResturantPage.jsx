@@ -46,6 +46,10 @@ import Sides6 from "./ItemsImages/Sides6.jpeg";
 
 
 const RestaurantPage = () => {
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+
   const restaurants = [
     {
       name: "Burger Palace",
@@ -779,9 +783,32 @@ const RestaurantPage = () => {
       ],
     },
   ];
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  // Handle search on Enter key press
+  const handleSearch = (e) => {
+    if (e.key === "Enter") {
+      const filtered = restaurants.filter((restaurant) =>
+        restaurant.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      setFilteredRestaurants(filtered);
+    }
+  };
+
+  // Reset filtered restaurants when search query is empty
+  useEffect(() => {
+    if (searchQuery === "") {
+      setFilteredRestaurants(restaurants);
+    }
+  }, [searchQuery, restaurants]);
+
   useEffect(() => {
     window.scrollTo(0, 0); // Scroll to top
   }, []);
+
 
   return (
     <div className="restaurant-listing-container">
@@ -791,38 +818,44 @@ const RestaurantPage = () => {
           type="text"
           placeholder="Search restaurants or cuisines..."
           className="search-input"
+          value={searchQuery}
+          onChange={handleSearchChange}
+          onKeyDown={handleSearch}
         />
       </div>
       <div className="restaurant-list">
-        {restaurants.map((restaurant, index) => (
-          <Link
-            to={`/restaurant/${restaurant.name}`} // Dynamic route
-            state={{ restaurant }} // Pass restaurant data
-            key={index}
-            className="restaurant-link" // Add class for styling
-          >
-            <div className="restaurant-card">
-              <img
-                className="restaurant-image"
-                src={restaurant.image}
-                alt={restaurant.name}
-              />
-
-              <div className="restaurant-details">
-                <h3 className="restaurant-name">{restaurant.name}</h3>
-                <div className="restaurant-info">
-                  <span className="cuisine">{restaurant.cuisine}</span>
-                  <span className="rating">
-                    <StarFill className="star-icon" /> {restaurant.rating}
-                  </span>
+        {filteredRestaurants.length > 0 ? (
+          filteredRestaurants.map((restaurant, index) => (
+            <Link
+              to={`/restaurant/${restaurant.name}`}
+              state={{ restaurant }}
+              key={index}
+              className="restaurant-link"
+            >
+              <div className="restaurant-card">
+                <img
+                  className="restaurant-image"
+                  src={restaurant.image}
+                  alt={restaurant.name}
+                />
+                <div className="restaurant-details">
+                  <h3 className="restaurant-name">{restaurant.name}</h3>
+                  <div className="restaurant-info">
+                    <span className="cuisine">{restaurant.cuisine}</span>
+                    <span className="rating">
+                      <StarFill className="star-icon" /> {restaurant.rating}
+                    </span>
+                  </div>
+                  <p className="delivery-time">
+                    {restaurant.deliveryTime} delivery time
+                  </p>
                 </div>
-                <p className="delivery-time">
-                  {restaurant.deliveryTime} delivery time
-                </p>
               </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          ))
+        ) : (
+          <div className="no-results-message">No Restaurants Found</div>
+        )}
       </div>
     </div>
   );

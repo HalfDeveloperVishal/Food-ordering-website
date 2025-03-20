@@ -10,8 +10,14 @@ import RestaurantPage from "./components/ResturantPage/ResturantPage";
 import RestaurantDetails from "./components/Resturant-Details/Resturant1/ResturantDetails";
 import { CartProvider } from "./CartContext";
 import CartPage from "./components/CartPage/CartPage";
+import React, { useState } from 'react';
 
 function App() {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  };
   return (
     <CartProvider>
       <BrowserRouter>
@@ -22,8 +28,8 @@ function App() {
               path="/"
               element={
                 <>
-                  <HeroSection />
-                  <RestaurantListing />
+                  <HeroSection  onSearch={handleSearch}/>
+                  <RestaurantListing  searchQuery={searchQuery}/>
                   <HowItWorks />
                 </>
               }

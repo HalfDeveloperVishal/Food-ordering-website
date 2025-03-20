@@ -1,7 +1,7 @@
 .hero-container {
   position: relative;
   height: 400px;
-  background-image: url('herosectioimage.jpeg');
+  background-image: url("herosectioimage.jpeg");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -27,8 +27,6 @@
   margin-bottom: 30px;
 }
 
-
-
 .search-input {
   padding: 10px 15px;
   border-radius: 5px;
@@ -36,6 +34,24 @@
   font-size: 1rem;
   width: 300px;
   margin-right: 10px;
+}
+
+.clear-button {
+  position: absolute;
+  top: 162px;
+  right: 200px; /* Adjust based on the width of the search button */
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #888;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+
+.clear-button:hover {
+  color: #333;
 }
 
 .search-button {
@@ -55,26 +71,26 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .search-input {
-      width: 70%; /* Use percentage for relative width */
-      font-size: 0.9rem; /* Smaller font size on smaller screens */
-      margin-right: 5px; /* Reduce gap */
+    width: 70%; /* Use percentage for relative width */
+    font-size: 0.9rem; /* Smaller font size on smaller screens */
+    margin-right: 5px; /* Reduce gap */
   }
 
   .search-button {
-      padding: 8px 15px; /* Smaller padding */
-      font-size: 1rem; /* Smaller font size */
+    padding: 8px 15px; /* Smaller padding */
+    font-size: 1rem; /* Smaller font size */
   }
 }
 
 @media (max-width: 480px) {
   .search-input {
-      width: 80%; /* Further increase percentage */
-      font-size: 0.85rem;
+    width: 80%; /* Further increase percentage */
+    font-size: 0.85rem;
   }
 
   .search-button {
-      padding: 6px 12px;
-      font-size: 0.9rem;
-      margin-top: 10px;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    margin-top: 10px;
   }
 }
